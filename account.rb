@@ -2,31 +2,27 @@ require_relative 'transaction'
 
 class Account
 
-  attr_reader :history
+  attr_reader :history, :balance
 
   def initialize
     @balance = 0.0
     @history = []
   end
 
-  def balance
-    @balance.round(2)
-  end
-
-  def credit(amount, date, isCredit)
-    update_balance(amount, isCredit)
-    add_history(amount, date, isCredit, balance)
-    #transaction could infer credit/debit based on balance?
+  def process(transaction)
+    update_balance(transaction)
+    add_to_history(transaction)
   end
 
   private
 
-  def add_history(amount, date, isCredit, balance)
-    @history.push(Transaction.new(amount, date, isCredit, balance))
+  def add_to_history(transaction)
+    transaction.current_balance(balance)
+    @history.push(transaction)
   end
 
-  def update_balance(amount, isCredit)
-    isCredit ? @balance += amount : @balance -= amount
+  def update_balance(transaction)
+    transaction.isCredit ? @balance += transaction.amount : @balance -= transaction.amount
   end
 
 end

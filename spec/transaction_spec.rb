@@ -2,7 +2,7 @@ require_relative '../transaction'
 
 describe Transaction do
 
-  subject(:transaction) {described_class.new(500, "08/09/2014", true, 500)}
+  subject(:transaction) {described_class.new(500, "08/09/2014", true)}
 
   context "on creation" do
     it "has an amount (with 2 decimal points)" do
@@ -14,5 +14,9 @@ describe Transaction do
     it "knows if it's a credit" do
       expect(transaction.isCredit).to be true
     end
+  end
+
+  it "knows the account's balance" do
+    expect(transaction).to respond_to(:balance)
   end
 end

@@ -4,13 +4,16 @@ require 'date'
 
 class Transaction
 
-  attr_reader :isCredit, :amount, :balance, :date
+  attr_reader :isCredit, :amount, :date, :balance
 
-  def initialize(amount, date, isCredit, balance)
+  def initialize(amount, date, isCredit)
     @amount = amount
     @date = DateTime.parse(date)
     @isCredit = isCredit
-    @balance = balance
   end
-  
+
+  def current_balance(acc_balance)
+    @balance = acc_balance
+  end
+
 end
