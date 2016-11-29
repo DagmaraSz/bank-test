@@ -14,10 +14,6 @@ describe Account do
     end
   end
 
-  it "can print statements" do
-    expect(acc).to respond_to(:print_statement)
-  end
-
   it "lets you deposit money" do
     acc.credit(500, "01/02/2016", true)
     expect(acc.balance).to eq(500)

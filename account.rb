@@ -19,17 +19,6 @@ class Account
     #transaction could infer credit/debit based on balance?
   end
 
-  def print_statement
-    puts("date       || credit || debit   || balance")
-    history.reverse_each do |transaction|
-      if (transaction.isCredit)
-        puts (transaction.date.strftime("%d/%m/%Y") + " || " + sprintf('%.2f', transaction.amount) + "||" + "         || " + sprintf('%.2f', transaction.balance))
-      else
-        puts (transaction.date.strftime("%d/%m/%Y") + " ||        || " + sprintf('%.2f', transaction.amount) + "  || " + sprintf('%.2f', transaction.balance))
-      end
-    end
-  end
-
   private
 
   def add_history(amount, date, isCredit, balance)
