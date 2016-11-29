@@ -1,3 +1,5 @@
+require_relative '../transaction'
+
 describe Transaction do
 
   subject(:transaction) {described_class.new}
@@ -12,4 +14,5 @@ describe Transaction do
     it "knows if it's a credit" do
       expect([true, false]).to include(transaction.credit)
     end
+  end
 end

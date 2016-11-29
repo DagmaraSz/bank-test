@@ -1,3 +1,5 @@
+require_relative '../account'
+
 describe Account do
 
   subject(:acc){described_class.new}
