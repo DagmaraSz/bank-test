@@ -1,3 +1,5 @@
+require_relative '../statement'
+
 describe Statement do
 
   let(:deposit) {
