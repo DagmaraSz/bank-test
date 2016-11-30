@@ -1,4 +1,4 @@
-require_relative '../statement'
+require_relative '../lib/statement'
 
 describe Statement do
 

@@ -1,2 +1,2 @@
-require_relative '../../account'
-require_relative '../../statement'
+require_relative '../../lib/account'
+require_relative '../../lib/statement'

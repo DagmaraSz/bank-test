@@ -1,4 +1,4 @@
-require_relative '../transaction'
+require_relative '../lib/transaction'
 
 describe Transaction do
 
